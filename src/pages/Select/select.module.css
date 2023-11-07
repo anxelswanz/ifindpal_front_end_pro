@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #6B2ECB;
+} */
+.box {
+    min-height: 100vh;
+    background-color: #6B2ECB;
+    /* display: table-column; */
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-right: 2rem;
+    margin-left: 1rem;
+
+    /* animation */
+    animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/* animation */
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    50.001% {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+
+    50.002% {
+        opacity: 1;
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.glass {
+    position: relative;
+    width: 200px;
+    height: 240px;
+    background: linear-gradient(#fff2, transparent);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+    border-radius: 10px;
+    margin: -35px;
+    transform: rotate(calc(var(--var)* 1deg));
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+.container:hover .glass {
+    transform: rotate(0deg);
+    margin: 0.5rem;
+}
+
+.container .glass::before {
+    content: attr(data-text);
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.container .glass i {
+    font-size: 3rem;
+    color: #fff;
+    /* border: 2px solid black;
+    border-radius: 50%; */
+}
+
+.img {
+    position: absolute;
+    top: 0;
+    border-radius: 10px;
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+}

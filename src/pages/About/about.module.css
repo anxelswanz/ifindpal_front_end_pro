@@ -1,0 +1,53 @@
+.container {
+    width: 100%;
+    height: 200rem;
+    background-color: #8A59D6;
+    background-size: 100% 100%;
+
+}
+
+.box {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.smallbox {
+    margin-top: 5rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.title {
+    color: white;
+}
+
+.author {
+    margin-top: 5rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    /* animation */
+    animation-name: move;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+
+/* animation */
+@keyframes move {
+
+
+    50.002% {
+        opacity: 1;
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

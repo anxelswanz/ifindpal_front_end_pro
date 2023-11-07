@@ -1,0 +1,15 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    color: black;
+    gap: '1px';
+}
+
+.textarea {
+    width: 90%;
+    outline: none;
+    border: 0.5px solid #6B2ECB;
+    border-radius: 6px;
+    height: 3rem;
+}

@@ -1,0 +1,92 @@
+.box {
+    position: relative;
+    width: 100%;
+    height: 500rem;
+    background-color: #8A59D6;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.box .container {
+    position: absolute;
+    box-sizing: border-box;
+    width: 50%;
+    height: 30rem;
+    top: 3rem;
+    left: 25%;
+    background-color: #6B2ECB;
+    border-radius: 20px;
+
+    /* animation */
+    animation-name: move;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/* animation */
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    50.001% {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+
+    50.002% {
+        opacity: 1;
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.container .myposttitle {
+    margin-top: 1rem;
+    color: white;
+}
+
+
+.allpost {
+    box-sizing: border-box;
+    width: 96%;
+    height: 75%;
+    margin-top: 1rem;
+    margin-left: 2%;
+    border-radius: 20px;
+    overflow: auto;
+}
+
+.inLinecontent {
+    margin-right: 0.5rem;
+}
+
+.mypostitem {
+    position: relative;
+    color: white;
+    margin-top: 1rem;
+    border-radius: 20px;
+    background-color: #8A59D6;
+    padding: 0 1rem;
+    height: 20%;
+    display: flex;
+    align-items: center;
+
+}
+
+.allpost::-webkit-scrollbar {
+    width: 0.4em
+}
+
+.allpost::-webkit-scrollbar-track {
+    background-color: #8A59D6
+}
+
+::-webkit-scrollbar-thumb {
+    background-Color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px
+}

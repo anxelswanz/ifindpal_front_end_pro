@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+section .color {
+    position: absolute;
+    filter: blur(150px);
+}
+
+section .color:nth-child(1) {
+    top: -350px;
+    width: 1000px;
+    height: 650px;
+    background: #6B2ECB;
+}
+
+section .color:nth-child(2) {
+    bottom: -150px;
+    left: 30px;
+    width: 650px;
+    height: 500px;
+    background: #291399;
+}
+
+section .color:nth-child(3) {
+    bottom: -150px;
+    right: 30px;
+    width: 650px;
+    height: 500px;
+    background: #4C0139;
+}
+
+.container {
+    position: relative;
+    width: 20rem;
+    min-height: 23rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+}
+
+.login-welcome {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.container .login-title {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+form {
+    width: 18rem;
+    padding-left: 2rem;
+
+}
+
+.container .input-box {
+    width: 100%;
+}
+
+.container .input-box input {
+    width: 90%;
+    height: 100%;
+    margin-bottom: 0.6rem;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.container .input-box input::placeholder {
+    color: white;
+    font-weight: 600;
+}
+
+.sign-up {
+    font-size: 0.8rem;
+    color: white;
+    margin-top: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.sign-up-buttom {
+    color: white;
+    margin-top: 0.8rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.line {
+    position: absolute;
+    width: 40rem;
+    height: 35rem;
+    /* border: 2px solid black; */
+    border-radius: 50%;
+    animation: myRotate 10s linear infinite;
+}
+
+.slide-circle {
+    position: absolute;
+    left: 320px;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    /* border: 1px solid white; */
+    border-radius: 50%;
+    /* background-color: #612152; */
+    filter: blur(5x);
+    transform: rotate(360deg);
+    transition: transform 2s linear;
+
+}
+
+
+@keyframes myRotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

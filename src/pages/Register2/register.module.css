@@ -1,0 +1,70 @@
+.container {
+    display: grid;
+    text-align: center;
+    background-color: #8A59D6;
+    height: 100rem;
+    color: white;
+}
+
+.registerbox {
+    width: 50%;
+    margin-left: 25%;
+    height: 35rem;
+    margin-top: 3rem;
+    background-color: #6B2ECB;
+    border-radius: 15px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+
+    /* animation */
+    animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+   /* animation */
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    50.001% {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+
+    50.002% {
+        opacity: 1;
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.registerbox header {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.inputbox {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.inputbox input {
+    position: relative;
+    height: 20px;
+    width: 70%;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    padding: 0 15px;
+}
+
+
+
+.img {
+    width: 3rem;
+    height: 3rem;
+}
