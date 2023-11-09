@@ -17,9 +17,10 @@ export default function Map() {
     /**
      * show me on map
      */
-
     const [show, setShow] = useState(false);
+
     const handleChange = async () => {
+        setIsLoading(true);
         const userJson = localStorage.getItem("user");
         const obj = JSON.parse(userJson);
         const user = obj.user;
@@ -43,6 +44,10 @@ export default function Map() {
             const res = await axios.post(setMeOnMap, map)
         }
         setShow(!show);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000)
+
     }
 
     /**
@@ -51,8 +56,27 @@ export default function Map() {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCoordinates({ lat: latitude, lng: longitude });
+        }, error => {
+            switch(error.code)
+            {
+            case error.PERMISSION_DENIED:
+              alert("User denied the request for Geolocation.")
+              break;
+            case error.POSITION_UNAVAILABLE:
+              alert("Location information is unavailable.")
+              break;
+            case error.TIMEOUT:
+              alert("The request to get user location timed out.")
+              break;
+            case error.UNKNOWN_ERROR:
+              alert("An unknown error occurred.")
+              break;
+            }
         })
-    }, [coordinates])
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000)
+    }, [show])
 
     /**
      * 获取当前城市的map信息
@@ -70,7 +94,6 @@ export default function Map() {
             try {
                 const res = await axios.get(`${getUsersByCity}?currentCity=${user.currentCity}`)
                 setUserList(res.data.obj);
-
                 /**
                  * 我是否在map上
                  */
@@ -83,7 +106,7 @@ export default function Map() {
         }
         asyncFunc();
 
-    }, [show])
+    }, [show, coordinates])
 
     useEffect(() => {
 
@@ -115,39 +138,47 @@ export default function Map() {
                     fontWeight: 'bold',
                     marginLeft: '7rem'
                 }}>
-                    {user.currentCity}
+                    {user.currentCity} 
                 </span> : ''
             }
+            {
+                isLoading ? <img style={{
+                    position: 'absolute',
+                    top: '16rem',
+                    width: '15rem',
+                    height: '15rem',
+                    right: '25rem'
+                }} src={MapLoading} /> : <GoogleMapReact
+                    bootstrapURLKeys={{ key: 'AIzaSyAv4fWyvh0FAe0RX-3QCwoamX6NTPAAOh8' }}
+                    defaultCenter={coordinates}
+                    center={coordinates}
+                    defaultZoom={15}
+                    onChange={(e) => {
+                    }}
+                    onChildClick={(child) => { }}
+                    options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
+                >
 
-            <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyCsNVqfB4cruxYtZoznlybGW9SXAQUS-M0' }}
-                defaultCenter={coordinates}
-                center={coordinates}
-                defaultZoom={15}
-                onChange={(e) => {
-                }}
-                onChildClick={(child) => { }}
-                options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
-            >
+                    {
+                        userList?.map((u) => {
+                            return <div
+                                lat={u.lat}
+                                lng={u.lng}
+                            >
+                                <img
+                                    style={{
+                                        width: '4rem',
+                                        height: '4rem'
+                                    }}
+                                    src={u.avatar} />
+                            </div>
 
-                {
-                    userList?.map((u) => {
-                        return <div
-                            lat={u.lat}
-                            lng={u.lng}
-                        >
-                            <img
-                                style={{
-                                    width: '4rem',
-                                    height: '4rem'
-                                }}
-                                src={u.avatar} />
-                        </div>
+                        })
+                    }
 
-                    })
-                }
+                </GoogleMapReact >
+            }
 
-            </GoogleMapReact >
 
         </div >
     )

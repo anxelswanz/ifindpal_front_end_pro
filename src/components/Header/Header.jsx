@@ -68,7 +68,6 @@ export default function Header() {
     setUser(userObj.user);
     setUserId(userObj.userId);
     setToken(userObj.token);
-    console.log(user);
   }, [])
 
   /**
@@ -86,7 +85,6 @@ export default function Header() {
   const handleClose = async (e) => {
     setOpen(false);
     if (e === 'yes') {
-      console.log(token);
       try {
         axios.interceptors.request.use(
           config => {

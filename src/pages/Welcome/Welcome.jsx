@@ -38,7 +38,7 @@ export default function Welcome() {
                         marginTop: '4rem',
                         fontSize: '2rem'
                     }}>
-                        Welcome {nickName} , Let's find out more today!
+                        Welcome {nickName} , let's find out more today!
                     </div>
                 </div>
             </div>

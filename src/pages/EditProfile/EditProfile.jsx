@@ -55,9 +55,22 @@ export default function Register() {
     }, [])
     console.log('user', user);
     async function submit() {
+        /**
+         * 重新放入user
+         */
+        const userJson = localStorage.getItem('user');
+        let obj = JSON.parse(userJson);
+        if (email != obj.user.email) {
+            obj.user.email = email;
+        }
+        if (nickName != user.nickName) {
+            obj.user.nickName = nickName;
+        }
+        localStorage.setItem('user', JSON.stringify(obj));
+
         try {
             const res = await axios.post(updateUser, {
-                nickName:nickName,
+                nickName: nickName,
                 email: email,
                 userId: user.userId,
             })

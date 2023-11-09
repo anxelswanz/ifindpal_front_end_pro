@@ -14,6 +14,7 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import ExploreIcon from '@material-ui/icons/Explore';
 import DisplayPic from '../../components/DisplayPic/DisplayPic';
+import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 const useStyles = makeStyles({
     button: {
         width: '90%',
@@ -66,7 +67,6 @@ export default function Home() {
          * 3.获取 theme 如果theme为空那么返回theme select
          */
         const getTheme = search.get('theme');
-        console.log(getTheme);
         if (getTheme == null) {
             navigate('/select');
         }
@@ -107,7 +107,7 @@ export default function Home() {
                             <div>
                                 <NavLink to='/home/displaypic' className={styles.navlink}>
                                     <Button variant='contained' className={classes.button}>
-                                        <ExploreIcon className={classes.icon} />
+                                        <FilterVintageIcon className={classes.icon} />
                                         Recommended
                                     </Button>
                                 </NavLink>

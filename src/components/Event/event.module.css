@@ -31,7 +31,14 @@
 .time {
     position: absolute;
     top: 0.5rem;
-    left: 6rem;
+    left: 12rem;
+    vertical-align: bottom;
+}
+
+.minute {
+    position: absolute;
+    top: 0.5rem;
+    left: 16rem;
     vertical-align: bottom;
 }
 
@@ -46,12 +53,7 @@
 
 }
 
-.minute {
-    position: absolute;
-    top: 0.5rem;
-    left: 11rem;
-    vertical-align: bottom;
-}
+
 
 .newscontainer {
     width: 100%;
