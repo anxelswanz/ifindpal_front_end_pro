@@ -1,3 +1,9 @@
-Plugins
-- Toast npm install --save react-toastify
--  npm install @material-ui/pickers --legacy-peer-deps
+Hi This is iFindpal Web (UK) Front-End Development ~
+
+Developed by Ronghui Zhong
+
+Tools: React.js / MUI / JavaScript / Google-Map-React / antd 
+
+Now it's open-source!!!
+
+[iFindpal is a website for people of common interests to ]
