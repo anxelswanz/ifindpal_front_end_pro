@@ -6,4 +6,4 @@ Tools: React.js / MUI / JavaScript / Google-Map-React / antd
 
 Now it's open-source!!!
 
-[iFindpal is a website for people of common interests to ]
+[iFindpal is a website for people of common interests to do events together ~ ]
